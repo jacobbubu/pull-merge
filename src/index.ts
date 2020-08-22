@@ -43,7 +43,7 @@ type Compare<T> = (a: T, b: T) => number
 
 export default function merge<T>(
   left: pull.Source<T> | pull.Source<T>[],
-  right: pull.Source<T> | Compare<T>,
+  right?: pull.Source<T> | Compare<T>,
   compare?: Compare<T>
 ): pull.Source<T> {
   if (Array.isArray(left)) {

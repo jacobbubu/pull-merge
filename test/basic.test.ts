@@ -24,6 +24,17 @@ describe('basic', () => {
     )
   })
 
+  it('array parameter', (done) => {
+    pull(
+      merge([pull.values([1]), pull.values([2])]),
+      pull.collect(function (err, ary) {
+        expect(err).toBeFalsy()
+        expect(ary).toEqual([1, 2])
+        done()
+      })
+    )
+  })
+
   it('different', (done) => {
     pull(
       merge(pull.values([1]), pull.values([2])),
